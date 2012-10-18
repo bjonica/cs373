@@ -52,8 +52,10 @@ assert f(2, **d) == [2, 3, ()]
 
 d = {"y" : 3, "a" : 2}
 #f(2, **d)             # TypeError: f() got an unexpected keyword argument 'a'
+#f(**d)                # TypeError: f() got an unexpected keyword argument 'a'
 
 d = {"y" : 3, "x" : 2}
-#f(2, **d)             # TypeError: f() got multiple values for keyword argument 'x'
+#f(2, **d)                  # TypeError: f() got multiple values for keyword argument 'x'
+assert f(**d) == [2, 3, ()]
 
 print "Done."

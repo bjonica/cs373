@@ -20,5 +20,6 @@ assert f([2, 3], 4)                 == [2, 3, 4]
 assert f(set([2, 3]), 4)            == [2, 3, 4]
 assert f({2 : "abc", 3 : "def"}, 4) == [2, 3, 4]
 assert f(xrange(2, 4), 4)           == [2, 3, 4]
+#f(xrange(2, 5), 4)                              # ValueError: too many values to unpack
 
 print "Done."

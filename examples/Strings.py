@@ -60,9 +60,8 @@ assert str(2L)    is not str(2L)
 assert str(2.34)  ==     str(2.34)
 assert str(2.34)  is not str(2.34)
 
-assert "c"       in "abcde"
-assert "x"   not in "abcde"
 assert "bcd"     in "abcde"
+assert "xyz" not in "abcde"
 
 assert "" is ""
 
@@ -86,34 +85,29 @@ t = s.upper()
 assert s == "abCbA"
 assert t == "ABCBA"
 
-s = "abCbA"
+s = "abCbACb"
 n = s.find("Cb")
-assert s == "abCbA"
+assert s == "abCbACb"
 assert n == 2
 
-s = "abCbA"
+s = "abCbACb"
 n = s.find("Cx")
-assert s == "abCbA"
+assert s == "abCbACb"
 assert n == -1
 
-s = "abCbA"
-n = s.rfind("bC")
-assert s == "abCbA"
-assert n == 1
+s = "abCbACb"
+n = s.rfind("Cb")
+assert s == "abCbACb"
+assert n == 5
 
-s = "abCbA"
-t = s.replace("b", "x")
-assert s == "abCbA"
-assert t == "axCxA"
+s = "abCbACb"
+t = s.replace("Cb", "Xy")
+assert s == "abCbACb"
+assert t == "abXyAXy"
 
-s = "abCbA"
-t = s.replace("b", "x", 1)
-assert s == "abCbA"
-assert t == "axCbA"
-
-s = "abCbA"
-t = s.replace("Cb", "xy")
-assert s == "abCbA"
-assert t == "abxyA"
+s = "abCbACb"
+t = s.replace("Cb", "Xy", 1)
+assert s == "abCbACb"
+assert t == "abXyACb"
 
 print "Done."
