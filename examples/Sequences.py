@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 
-# ---------
-# Arrays.py
-# ---------
+# ------------
+# Sequences.py
+# ------------
 
 def test_1 (T) :
     assert not T()
@@ -103,7 +103,7 @@ def test_2 (T) :
     assert sum(a, ()) == (2, 3, 4, 5, 6)
 #   assert sum(a)     == (2, 3, 4, 5, 6) # TypeError: unsupported operand type(s) for +: 'int' and 'tuple'
 
-print "Arrays.py"
+print "Sequences.py"
 
 test_1(str)
 test_1(list)
