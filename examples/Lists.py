@@ -60,12 +60,12 @@ except IndexError, e:
 a = []
 a.extend([2])                                                 # +=
 a.extend((3, 4, 5))
-a.extend([6])
-assert a == [2, 3, 4, 5, 6]
+a.extend(set([4, 6]))
+assert a == [2, 3, 4, 5, 4, 6]
 a.remove(4)
-assert a == [2, 3, 5, 6]
+assert a == [2, 3, 5, 4, 6]
 try :
-    a.remove(4)
+    a.remove(7)
     assert False
 except ValueError, e:
     assert type(e.args) is tuple
@@ -97,13 +97,14 @@ assert a is b
 a = [2, 3, 4]
 b = a
 assert a is b
-b += [5]                 # extend
+b += (5,)                # extend
 assert a == [2, 3, 4, 5]
 assert a is b
 
 a = (2, 3, 4)
 b = a
 assert a is b
+#b += [5]                # TypeError: can only concatenate tuple (not "list") to tuple
 b += (5,)
 assert a == (2, 3, 4)
 assert b == (2, 3, 4, 5)
