@@ -1,5 +1,5 @@
-Project #4: WC1
-Date: Wed, 24 Oct 2012
+Project #5: WC2
+Date: Wed, 7 Nov 2012
 
 Course Name: CS373
 Unique: 91055
