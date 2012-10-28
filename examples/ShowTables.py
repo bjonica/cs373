@@ -12,6 +12,22 @@ print
 
 c = Login.login()
 
+t = Query.query(c, "drop table if exists dept;")
+assert t is None
+
+t = Query.query(
+        c,
+        """
+        create table dept (
+                department  int,
+                name        text,
+                location    text,
+                budget      int,
+                primary key (department))
+            engine = innodb;
+        """)
+assert t is None
+
 t = Query.query(c, "show tables;")
 print "1."
 print t

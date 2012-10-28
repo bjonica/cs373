@@ -31,11 +31,6 @@ try :
 except Exception, e :
     assert False
 
-t = Query.query(c, "show tables")
-print "1."
-print t
-print
-
 try :
     t = Query.query(
             c,
@@ -50,7 +45,6 @@ try :
             """)
     assert False
 except Exception, e :
-    print "2."
     print e
     print
 
@@ -59,10 +53,6 @@ print "Done."
 """
 CreateTables.py
 
-1.
-(('dept',),)
-
-2.
 (1050, "Table 'dept' already exists")
 
 Done.
