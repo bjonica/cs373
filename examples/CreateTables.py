@@ -23,11 +23,13 @@ try :
                     department  int,
                     name        text,
                     location    text,
-                    budget      int)
+                    budget      int,
+                    primary key (department))
                 engine = innodb;
             """)
+    assert t is None
 except Exception, e :
-    assert False;
+    assert False
 
 t = Query.query(c, "show tables")
 print "1."
@@ -42,10 +44,11 @@ try :
                     department  int,
                     name        text,
                     location    text,
-                    budget      int)
+                    budget      int,
+                    primary key (department))
                 engine = innodb;
             """)
-    assert False;
+    assert False
 except Exception, e :
     print "2."
     print e
