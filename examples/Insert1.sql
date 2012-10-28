@@ -1,5 +1,15 @@
 use downing_test;
 
+drop table if exists movies;
+
+create table movies (
+        name        text not null,
+        award       text,
+        actor       text not null,
+        director    text not null,
+        year        int  not null)
+    engine = innodb;
+
 insert into movies values ("2001: A Space Odyssey", "Oscar", "Gary Lockwood, Keir Dullea", "Stanley Kubrick", 1968);
 insert into movies values ("Ben Hur", "Golden Globes, Oscar", "Charlton Heston, Stephen Boyd", "William Wyler", 1959);
 insert into movies values ("Big Country, The", "Golden Globes, Oscar", "Charlton Heston, Gregory Peck, Jean Simmons", "William Wyler", 1958);
@@ -17,5 +27,7 @@ insert into movies values ("Shane", "Oscar", "Alan Ladd, Jean Arthur, Van Heflin
 insert into movies values ("Spartacus", "Golden Globes, Oscar", "Jean Simmons, Kirk Douglas, Laurence Olivier", "Stanley Kubrick", 1960);
 insert into movies values ("Star Wars", "Golden Globes, Oscar", "Carrie Fisher, Harrison Ford, Mark Hamill", "George Lucas", 1977);
 insert into movies values ("Titanic", "Golden Globes, Oscar", "Kate Winslet, Leonardo DiCaprio", "James Cameron", 1997);
+
+select * from movies;
 
 exit
