@@ -15,13 +15,7 @@ class Eq a where
     (==) :: a -> a -> Bool
 
 class (Eq a) => Ord a where
-    (<) :: a -> a -> Bool
-
-instance Eq A where
-    A x == A y  =  x == y
-
-instance Ord A where
-    A x <  A y  =  x <  y
+    (<)  :: a -> a -> Bool
 -}
 
 import Control.Exception (assert)
@@ -41,6 +35,7 @@ instance Ord B where
 
 data C =
     C Int
+    deriving (Eq)
 
 myMax1 :: (Ord a) => a -> a -> a
 myMax1 x y =
@@ -49,7 +44,7 @@ myMax1 x y =
     else
         x
 
-myMax2 :: a -> a -> (a -> a-> Bool) -> a
+myMax2 :: a -> a -> (a -> a -> Bool) -> a
 myMax2 x y bf =
     if (bf x y) then
         y
@@ -73,11 +68,11 @@ main = do
     assert ((  max  (A 2) (A 3)) == (A 3)) return ()
     assert ((myMax1 (B 2) (B 3)) == (B 3)) return ()
 --  assert ((  max  (B 2) (B 3)) == (B 3)) return ()
---  assert ((myMax1 (C 2) (C 3)) == (C 3)) return () -- No instance for (Ord C), (Eq C)
---  assert ((  max  (C 2) (C 3)) == (C 3)) return () -- No instance for (Ord C), (Eq C)
+--  assert ((myMax1 (C 2) (C 3)) == (C 3)) return () -- No instance for (Ord C)
+--  assert ((  max  (C 2) (C 3)) == (C 3)) return () -- No instance for (Ord C)
 
-    assert ((myMax2 (A 2) (A 3) (\x y -> y < x)) == (A 2)) return ()
-    assert ((myMax2 (B 2) (B 3) (\x y -> y < x)) == (B 2)) return ()
---  assert ((myMax2 (C 2) (C 3) (\x y -> y < x)) == (C 2)) return () -- -- No instance for (Ord C), (Eq C)
+    assert ((myMax2 (A 2) (A 3) (\x y -> y <  x)) == (A 2)) return ()
+    assert ((myMax2 (B 2) (B 3) (\x y -> y <  x)) == (B 2)) return ()
+    assert ((myMax2 (C 2) (C 3) (\x y -> y == x)) == (C 2)) return ()
 
     putStrLn "Done."
