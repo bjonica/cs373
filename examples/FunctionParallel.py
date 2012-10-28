@@ -12,7 +12,7 @@ def f ((x, y), z) :
 
 print "FunctionParallel.py"
 
-#f(2, 3, 4)                                      # TypeError: f() takes exactly 1 argument (3 given)
+#f(2, 3, 4)                                      # TypeError: f() takes exactly 2 arguments (3 given)
 #f((2,), 3)                                      # ValueError: need more than 2 values to unpack
 #f((2, 3, 4), 5)                                 # ValueError: too many values to unpack
 assert f((2, 3), 4)                 == [2, 3, 4]
