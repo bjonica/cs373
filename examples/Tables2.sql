@@ -1,5 +1,12 @@
 use downing_test;
 
+drop table if exists movies_actors;
+drop table if exists actors;
+drop table if exists movies_awards;
+drop table if exists awards;
+drop table if exists movies;
+drop table if exists directors;
+
 create table directors (
         director_id   int  not null auto_increment,
         director_name text not null,
@@ -40,5 +47,15 @@ create table movies_actors (
         foreign key (movie_id) references movies (movie_id),
         foreign key (actor_id) references actors (actor_id))
     engine = innodb;
+
+show tables;
+show table status;
+
+show columns from directors;
+show columns from movies;
+show columns from awards;
+show columns from movies_awards;
+show columns from actors;
+show columns from movies_actors;
 
 exit
