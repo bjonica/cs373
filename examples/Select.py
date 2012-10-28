@@ -51,8 +51,8 @@ print "Done."
 """
 Select.py
 
-(('10', 'Research', 'New York', '1500000'),
- ('15', 'Computing', 'Miami', '1200000'))
+(('10', 'Research',  'New York', '1500000'),
+ ('15', 'Computing', 'Miami',    '1200000'))
 
 Done.
 """
