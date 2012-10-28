@@ -4,22 +4,6 @@
 # Databases.py
 # ------------
 
-"""
-Login.py:
-
-import _mysql
-
-def login () :
-    c = _mysql.connect(
-            host   = "z",
-            user   = "<username>",
-            passwd = "<password>",
-            db     = "<database>")
-    assert str(type(c)) == "<type '_mysql.connection'>"
-    assert str(c)[0:30] == "<_mysql.connection open to 'z'"
-    return c
-"""
-
 import Login
 import Query
 
