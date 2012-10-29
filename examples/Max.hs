@@ -15,7 +15,7 @@ class Eq a where
     (==) :: a -> a -> Bool
 
 class (Eq a) => Ord a where
-    (<)  :: a -> a -> Bool
+    (<=) :: a -> a -> Bool
 -}
 
 import Control.Exception (assert)
@@ -31,7 +31,7 @@ instance Eq B where
     B x == B y  =  x == y
 
 instance Ord B where
-    B x <  B y  =  x <  y
+    B x <= B y  =  x <= y
 
 data C =
     C Int
@@ -39,7 +39,7 @@ data C =
 
 myMax1 :: (Ord a) => a -> a -> a
 myMax1 x y =
-    if x < y then
+    if x <= y then
         y
     else
         x
@@ -67,12 +67,12 @@ main = do
     assert ((myMax1 (A 2) (A 3)) == (A 3)) return ()
     assert ((  max  (A 2) (A 3)) == (A 3)) return ()
     assert ((myMax1 (B 2) (B 3)) == (B 3)) return ()
---  assert ((  max  (B 2) (B 3)) == (B 3)) return ()
+    assert ((  max  (B 2) (B 3)) == (B 3)) return ()
 --  assert ((myMax1 (C 2) (C 3)) == (C 3)) return () -- No instance for (Ord C)
 --  assert ((  max  (C 2) (C 3)) == (C 3)) return () -- No instance for (Ord C)
 
-    assert ((myMax2 (A 2) (A 3) (\x y -> y <  x)) == (A 2)) return ()
-    assert ((myMax2 (B 2) (B 3) (\x y -> y <  x)) == (B 2)) return ()
+    assert ((myMax2 (A 2) (A 3) (\x y -> y <= x)) == (A 2)) return ()
+    assert ((myMax2 (B 2) (B 3) (\x y -> y <= x)) == (B 2)) return ()
     assert ((myMax2 (C 2) (C 3) (\x y -> y == x)) == (C 2)) return ()
 
     putStrLn "Done."
