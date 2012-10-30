@@ -19,28 +19,25 @@ zip      :: [a]           -> [b]        -> [(a, b)]
 
 import Control.Exception (assert)
 
-sqre_diff :: Double -> Double -> Double
-sqre_diff x y = (x - y) ^ (2::Int)
-
 rmse1 :: [Double] -> [Double] -> Double
 rmse1 a p =
     let s = fromIntegral (length a)
         z = zip a p
-        v = foldl (\w (x, y) -> w + (sqre_diff x y)) 0.0 z
+        v = foldl (\w (x, y) -> w + (x - y) ** 2) 0.0 z
     in sqrt (v / s)
 
 rmse2 :: [Double] -> [Double] -> Double
 rmse2 a p =
     let s = fromIntegral (length a)
         z = zip a p
-        v = sum (map (\(x, y) -> (sqre_diff x y)) z)
+        v = sum (map (\(x, y) -> (x - y) ** 2) z)
     in sqrt (v / s)
 
 rmse3 :: [Double] -> [Double] -> Double
 rmse3 a p =
     let s = fromIntegral (length a)
         z = zip a p
-        v = sum [sqre_diff x y | (x, y) <- z]
+        v = sum [(x - y) ** 2 | (x, y) <- z]
     in sqrt (v / s)
 
 test :: ([Double] -> [Double] -> Double) -> IO ()
