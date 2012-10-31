@@ -2,10 +2,17 @@
 
 print "Test.py"
 
-a = 3 * [[]]
-assert a[0] is a[1]
+""" ----------------------------------------------------------------------
+3. What is the output of the following program?
+   (2 pts)
 
-a = [[] for v in xrange(3)]
-assert a[0] is not a[1]
+[2, 3, {'a': 4}]
+"""
+
+def f (x, y, **z) :
+    return [x, y, z]
+
+d = {"z" : 4, "y" : 3}
+print f(2, **d)
 
 print "Done."
