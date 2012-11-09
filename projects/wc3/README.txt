@@ -1,5 +1,5 @@
-Project #4: WC1
-Date: Wed, 24 Oct 2012
+Project #6: WC3
+Date: Wed, 28 Nov 2012
 
 Course Name: CS373
 Unique: 53070, 53075
@@ -11,7 +11,7 @@ E-mail:
 Estimated number of hours:
 Actual    number of hours:
 
-Turnin CS Username:     <the chosen one for the group, same for all three phases>
+Turnin CS Username:     <group leader's>
 GitHub ID:              <the chosen one for the group, same for all three phases>
 GitHub Repository Name: cs373-wc <same for all three phases>
 Google App Engine URL:  <cs username>-cs373-wc.appspot.com
