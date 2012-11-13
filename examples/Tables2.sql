@@ -7,6 +7,8 @@ drop table if exists awards;
 drop table if exists movies;
 drop table if exists directors;
 
+drop table if exists dept;
+
 create table directors (
         director_id   int  not null auto_increment,
         director_name text not null,
