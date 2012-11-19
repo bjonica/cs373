@@ -67,11 +67,11 @@ assert x is not y
 assert x ==     y
 
 x = Circle(2, 3, 4)
-assert x.area()     == 3.14 * 4 * 4
-assert str(x)       == "(2, 3, 4)"
+assert x.area()   == 3.14 * 4 * 4
+assert str(x)     == "(2, 3, 4)"
 x.move(5, 6)
-assert str(x)       == "(5, 6, 4)"
-assert x.radius()   == 4
+assert str(x)     == "(5, 6, 4)"
+assert x.radius() == 4
 
 x = Circle(2, 3, 4)
 y = Circle(2, 3, 4)
@@ -79,10 +79,10 @@ assert x is not y
 assert x ==     y
 
 x = PseudoCircle1(2, 3)
-assert x.area()         == 0
-assert str(x)           == "2, 3"
+assert x.area() == 0
+assert str(x)   == "2, 3"
 x.move(5, 6)
-assert str(x)           == "5, 6"
+assert str(x)   == "5, 6"
 
 #x = PseudoCircle2(2, 3) # TypeError: __init__() takes exactly 2 arguments (3 given)
 

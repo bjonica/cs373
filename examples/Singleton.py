@@ -115,27 +115,17 @@ assert y.f()           ==     "C2.f()"
 
 
 class D (object) :
-    @staticmethod
-    def f () :
-        return "D.f()"
-assert D()   is not D()
-assert D.f() is not "D.f()"
-assert D.f() ==     "D.f()"
-
-
-
-class E (object) :
     __d = {}
 
     def __init__ (self):
         self.__dict__ = self.__d
 
     def f (self) :
-        return "E.f()"
+        return "D.f()"
 
-assert E()          is not E()
-assert E().__dict__ is     E ().__dict__
-assert E().f()      is not "E.f()"
-assert E().f()      ==     "E.f()"
+assert D()          is not D()
+assert D().__dict__ is     D ().__dict__
+assert D().f()      is not "D.f()"
+assert D().f()      ==     "D.f()"
 
 print "Done."
