@@ -58,6 +58,8 @@ class Movie {
         _title = title;
         try {
             _price = (Price) Class.forName(price).newInstance();}
+        catch (ClassCastException e) {
+            e.printStackTrace();}
         catch (ClassNotFoundException e) {
             e.printStackTrace();}
         catch (IllegalAccessException e) {

@@ -13,30 +13,25 @@ Change get_amount(), get_points(), and get_output() to static methods in Price.
 """
 
 class Price (object) :
-    @staticmethod
-    def get_points (days_rented) : # const
+    def get_points (self, days_rented) : # const
         return 1
 
 class RegularPrice (Price) :
-    @staticmethod
-    def get_amount (days_rented) : # const
+    def get_amount (self, days_rented) : # const
         result = 2
         if days_rented > 2 :
             result += (days_rented - 2) * 1.5
         return result
 
 class NewReleasePrice (Price) :
-    @staticmethod
-    def get_amount (days_rented) : # const
+    def get_amount (self, days_rented) : # const
         return days_rented * 3
 
-    @staticmethod
-    def get_points (days_rented) : # const
+    def get_points (self, days_rented) : # const
         return 2 if (days_rented > 1) else 1
 
 class ChildrensPrice (Price) :
-    @staticmethod
-    def get_amount (days_rented) : # const
+    def get_amount (self, days_rented) : # const
         result = 1.5
         if days_rented > 3 :
             result += (days_rented - 3) * 1.5
@@ -45,7 +40,7 @@ class ChildrensPrice (Price) :
 class Movie (object) :
     def __init__ (self, title, price) :
         self.title = title
-        self.price = globals()[price]
+        self.price = globals()[price]()
 
     """
     price

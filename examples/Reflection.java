@@ -24,6 +24,9 @@ final class D {
 abstract class E
     {}
 
+class F
+    {}
+
 final class Reflection {
     public static void main (String[] args) {
         System.out.println("Reflection.java");
@@ -31,6 +34,8 @@ final class Reflection {
         try {
             assert ((I) A.class.newInstance()).f() == "A.f()";
             assert ((I) B.class.newInstance()).f() == "B.f()";}
+        catch (ClassCastException e) {
+            assert false;}
         catch (IllegalAccessException e) {
             assert false;}
         catch (InstantiationException e) {
@@ -39,6 +44,8 @@ final class Reflection {
         try {
             assert ((I) new A().getClass().newInstance()).f() == "A.f()";
             assert ((I) new B().getClass().newInstance()).f() == "B.f()";}
+        catch (ClassCastException e) {
+            assert false;}
         catch (IllegalAccessException e) {
             assert false;}
         catch (InstantiationException e) {
@@ -47,6 +54,8 @@ final class Reflection {
         try {
             assert ((I) Class.forName("A").newInstance()).f() == "A.f()";
             assert ((I) Class.forName("B").newInstance()).f() == "B.f()";}
+        catch (ClassCastException e) {
+            assert false;}
         catch (ClassNotFoundException e) {
             assert false;}
         catch (IllegalAccessException e) {
@@ -55,7 +64,8 @@ final class Reflection {
             assert false;}
 
         try {
-            Class.forName("C").newInstance();}
+            Class.forName("C").newInstance();
+            assert false;}
         catch (ClassNotFoundException e) {
             assert false;}
         catch (IllegalAccessException e) {
@@ -64,7 +74,8 @@ final class Reflection {
             assert false;}
 
         try {
-            Class.forName("D").newInstance();}
+            Class.forName("D").newInstance();
+            assert false;}
         catch (ClassNotFoundException e) {
             assert false;}
         catch (IllegalAccessException e) {
@@ -73,7 +84,8 @@ final class Reflection {
             assert e.toString().equals("java.lang.InstantiationException: D");}
 
         try {
-            Class.forName("E").newInstance();}
+            Class.forName("E").newInstance();
+            assert false;}
         catch (ClassNotFoundException e) {
             assert false;}
         catch (IllegalAccessException e) {
@@ -82,7 +94,8 @@ final class Reflection {
             assert e.toString() == "java.lang.InstantiationException";}
 
         try {
-            Class.forName("I").newInstance();}
+            Class.forName("I").newInstance();
+            assert false;}
         catch (ClassNotFoundException e) {
             assert false;}
         catch (IllegalAccessException e) {
@@ -91,10 +104,22 @@ final class Reflection {
             assert e.toString().equals("java.lang.InstantiationException: I");}
 
         try {
-            assert ((I) Class.forName("F").newInstance()).f() == "F.f()";
+            I x = (I) Class.forName("F").newInstance();
+            assert false;}
+        catch (ClassCastException e) {
+            assert e.toString().equals("java.lang.ClassCastException: F cannot be cast to I");}
+        catch (ClassNotFoundException e) {
+            assert false;}
+        catch (IllegalAccessException e) {
+            assert false;}
+        catch (InstantiationException e) {
+            assert e.toString().equals("java.lang.InstantiationException: I");}
+
+        try {
+            Class.forName("G").newInstance();
             assert false;}
         catch (ClassNotFoundException e) {
-            assert e.toString().equals("java.lang.ClassNotFoundException: F");}
+            assert e.toString().equals("java.lang.ClassNotFoundException: G");}
         catch (IllegalAccessException e) {
             assert false;}
         catch (InstantiationException e) {
