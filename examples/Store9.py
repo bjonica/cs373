@@ -40,7 +40,12 @@ class ChildrensPrice (Price) :
 class Movie (object) :
     def __init__ (self, title, price) :
         self.title = title
-        self.price = globals()[price]()
+        try :
+            self.price = globals()[price]()
+        except KeyError, e:
+            print e.args
+        except TypeError, e:
+            print e.args
 
     """
     price
