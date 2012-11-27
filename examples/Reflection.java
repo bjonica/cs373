@@ -91,7 +91,7 @@ final class Reflection {
         catch (IllegalAccessException e) {
             assert false;}
         catch (InstantiationException e) {
-            assert e.toString() == "java.lang.InstantiationException";}
+            assert e.toString().equals("java.lang.InstantiationException");}
 
         try {
             Class.forName("I").newInstance();
