@@ -13,7 +13,7 @@ import java.util.Enumeration;
 import java.util.Vector;
 
 interface Price {
-    double getAmount               (int daysRented);
+    double getAmount (int daysRented);
     int    getPoints (int daysRented);}
 
 abstract class AbstractPrice implements Price {
